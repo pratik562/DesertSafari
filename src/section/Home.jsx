@@ -146,11 +146,12 @@ const Home = () => {
           label="Contact Us"
           className="bg-primary px-6 py-3 text-primary-text rounded-lg hover:bg-secondary transition duration-300 shadow-md"
         />
-        <div className="flex flex-wrap mt-12 w-full justify-center gap-8">
+        
+        <div className="flex flex-wrap w-[800] mt-12 justify-between ">
           {company.statistics.map(({ label, icon }, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center w-32"
+              className="flex flex-col items-center text-center w-32 bg-white/10 backdrop-blur-lg rounded-2xl shadow-lg border border-white/20 transition-transform transform hover:scale-110 hover:shadow-2xl hover:-translate-y-2 p-5"
             >
               <div className="mb-3">{icon}</div>
               <p
