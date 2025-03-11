@@ -8,6 +8,16 @@ import { majorServices } from "@/utils/dummyData";
 import Button from "@/components/Button";
 import { ArrowBack } from "@mui/icons-material";
 
+const dummyYouTubeLinks = [
+  "https://www.youtube.com/embed/FKA5NxSRGYg",
+  "https://www.youtube.com/embed/Uu2_AO6Ozlw",
+  "https://www.youtube.com/embed/ElTnmgAAGaY",
+  "https://www.youtube.com/embed/5PvXTyaa2aw", // Note: Shorts can also use the embed URL.
+  "https://www.youtube.com/embed/G9WkWsm9wcY",
+  "https://www.youtube.com/embed/ctp5OV8t8Oo",
+];
+
+
 export default function SolarServiceDetails() {
   const router = useRouter();
   const { serviceId } = useParams();
@@ -58,8 +68,7 @@ export default function SolarServiceDetails() {
       {/* Header with Back Button */}
       <div className="w-full bg-gradient-to-r from-primary to-amber-300 p-4 flex items-center shadow-md">
         <button
-          onClick={() => router.push('/#about')}
-          // onClick={() => router.back()}
+          onClick={() => router.push("/#about")}
           className="flex items-center gap-2 text-secondary font-semibold text-lg"
         >
           <ArrowBack fontSize="medium" />
@@ -73,27 +82,26 @@ export default function SolarServiceDetails() {
       {/* Service Details */}
       <div ref={containerRef} className="container mx-auto px-6 py-10">
         <div className="relative bg-Home p-8 rounded-3xl shadow-xl flex flex-col md:flex-row gap-8">
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black bg-opacity-50 rounded-3xl pointer-events-none"></div>
-
-          {/* Main Content */}
-          <div className="relative w-full md:w-1/2"
-          style={{
-            clipPath: "polygon(10% 0%, 90% 0%, 100% 90%, 90% 100%, 10% 100%, 0% 10%)",
-            borderRadius: "12px",
-            overflow: "hidden",
-          }}
+          <div
+            className="relative w-full md:w-1/2"
+            style={{
+              clipPath:
+                "polygon(15% 0%, 85% 0%, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0% 85%, 0% 15%)",
+              borderRadius: "12px",
+              overflow: "hidden",
+              boxShadow: "0 6px 12px rgba(0, 0, 0, 0.15)",
+              border: "2px solid #ddd",
+            }}
           >
             <Image
               ref={imageRef}
               src={service.image}
               alt={service.title}
-              width={600}
-              height={400}
-              className="rounded-2xl object-cover"
+              className="rounded-md object-cover h-full w-full"
               loading="lazy"
             />
           </div>
+
           <div className="relative flex-1">
             <h2 className="text-4xl font-extrabold text-primary-text">
               {service.title}
@@ -101,21 +109,31 @@ export default function SolarServiceDetails() {
             <p className="text-lg text-secondary-text mt-4 leading-relaxed">
               {service.fullDescription}
             </p>
-            {service.features && service.features.length > 0 && (
-              <div className="mt-8 bg-yellow-100 p-6 rounded-xl shadow-lg border-l-4 border-yellow-500">
-                <h3 className="text-2xl font-semibold text-gray-800 mb-3">
-                  🌟 Key Features:
-                </h3>
-                <ul className="list-disc list-inside space-y-2 text-gray-700">
-                  {service.features.map((feature, index) => (
-                    <li key={index} className="text-lg font-medium">
-                      ✅ {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
           </div>
+        </div>
+      </div>
+
+      {/* YouTube Video Rendering */}
+      <div className="container mx-auto px-6 py-10">
+        <h2 className="text-3xl font-bold text-secondary mb-6">
+          Watch Related Videos
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {dummyYouTubeLinks.map((link, index) => (
+            <div
+              key={index}
+              className="relative w-full aspect-video rounded-xl overflow-hidden shadow-md"
+            >
+              <iframe
+                src={link}
+                title={`YouTube video ${index + 1}`}
+                className="w-full h-full"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          ))}
         </div>
       </div>
     </div>
