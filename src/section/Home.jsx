@@ -73,7 +73,7 @@ const Home = () => {
   return (
     <section id="home" className="relative flex flex-col w-full rounded-3xl">
       {/* Banner Section */}
-      <div className="relative w-full bg-Home bg-cover bg-center mt-10 rounded-3xl">
+      <div className="relative w-full bg-home bg-cover bg-center mt-10 rounded-3xl">
         <div className="relative w-full h-[450px] sm:h-[550px] lg:h-[650px] overflow-hidden rounded-3xl">
           <video
             key={currentIndex}
@@ -85,7 +85,10 @@ const Home = () => {
             loop
             className="absolute inset-0 w-full h-full object-cover rounded-3xl"
           >
-            <source src={bannerVideo[currentIndex]?.videoUrl} type="video/mp4" />
+            <source
+              src={bannerVideo[currentIndex]?.videoUrl}
+              type="video/mp4"
+            />
           </video>
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/20"></div>
           <div
@@ -146,21 +149,21 @@ const Home = () => {
           label="Contact Us"
           className="bg-primary px-6 py-3 text-primary-text rounded-lg hover:bg-secondary transition duration-300 shadow-md"
         />
-        
-        <div className="flex flex-wrap w-[800] mt-12 justify-between ">
+
+        <div className="flex flex-wrap w-full sm:w-[800px] mt-12 justify-center sm:justify-between gap-4">
           {company.statistics.map(({ label, icon }, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center w-32 bg-white/10 backdrop-blur-lg rounded-2xl shadow-lg border border-white/20 transition-transform transform hover:scale-110 hover:shadow-2xl hover:-translate-y-2 p-5"
+              className="flex flex-col items-center text-center w-28 sm:w-32 bg-white/10 backdrop-blur-lg rounded-2xl shadow-lg border border-white/20 transition-transform transform hover:scale-110 hover:shadow-2xl hover:-translate-y-2 p-4 sm:p-5"
             >
               <div className="mb-3">{icon}</div>
               <p
                 ref={(el) => (statsRef.current[index] = el)}
-                className="text-2xl font-bold"
+                className="text-xl sm:text-2xl font-bold"
               >
                 {counters[index]}
               </p>
-              <p className="text-sm mt-2 text-secondary">{label}</p>
+              <p className="text-xs sm:text-sm mt-2 text-secondary">{label}</p>
             </div>
           ))}
         </div>

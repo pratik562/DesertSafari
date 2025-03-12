@@ -42,8 +42,8 @@ export default function NavBar() {
   return (
     <header
       ref={navRef}
-      className={`padding-x absolute z-10 w-full py-3 bg-gradient-to-r from-black/50 to-black/30 backdrop-blur-md ${
-        isOpen && "h-[300]"
+      className={`padding-x absolute w-full z-10  bg-gradient-to-r from-black/50 to-black/30 backdrop-blur-md ${
+        isOpen && "h-full z-50" 
       }`}
     >
       <nav className="flex justify-between items-center max-w-7xl mx-auto">
@@ -80,17 +80,17 @@ export default function NavBar() {
 
         {isOpen && (
           <div
-            className="fixed inset-0 bg-black bg-opacity-50 z-50"
+            className="fixed inset-0  z-50"
             onClick={() => setIsOpen(false)}
           >
             <div
               ref={menuRef}
-              className="fixed top-0 right-0 h-full w-72 bg-primary-bg shadow-lg flex flex-col py-6 px-5"
+              className="fixed top-0 right-0 h-full w-72 bg-drawer bg-contain shadow-lg flex flex-col py-6 px-5"
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => setIsOpen(false)}
-                className="self-end text-2xl"
+                className="self-end text-2xl text-primary-text"
                 aria-label="Close Menu"
               >
                 &times;
@@ -101,7 +101,7 @@ export default function NavBar() {
                   <li key={item.label}>
                     <a
                       href={item.href}
-                      className="text-secondary text-lg font-medium hover:text-primary transition"
+                      className="text-primary-text text-lg font-medium hover:text-primary transition"
                       onClick={() => setIsOpen(false)}
                     >
                       {item.label}

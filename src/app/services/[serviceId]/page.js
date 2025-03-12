@@ -17,7 +17,6 @@ const dummyYouTubeLinks = [
   "https://www.youtube.com/embed/ctp5OV8t8Oo",
 ];
 
-
 export default function SolarServiceDetails() {
   const router = useRouter();
   const { serviceId } = useParams();
@@ -81,7 +80,16 @@ export default function SolarServiceDetails() {
 
       {/* Service Details */}
       <div ref={containerRef} className="container mx-auto px-6 py-10">
-        <div className="relative bg-Home p-8 rounded-3xl shadow-xl flex flex-col md:flex-row gap-8">
+        <div className="relative bg-home p-8 rounded-3xl shadow-xl flex flex-col md:flex-row gap-8">
+          {/* Overlay */}
+          <div
+            className="absolute inset-0 rounded-3xl pointer-events-none"
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8))",
+            }}
+          ></div>
+
           <div
             className="relative w-full md:w-1/2"
             style={{

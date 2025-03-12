@@ -33,7 +33,7 @@ const AboutService = ({ service, index, onLearnMore }) => {
   return (
     <div
       ref={serviceRef}
-      className={`relative flex flex-col sm:flex-row items-center gap-12 py-14 px-8 sm:px-14 rounded-3xl bg-Home bg-cover overflow-hidden 
+      className={`relative flex flex-col sm:flex-row items-center gap-12 py-14 px-8 sm:px-14 rounded-3xl bg-home bg-cover overflow-hidden 
                 transition-transform duration-500 transform hover:scale-105 hover:shadow-xl ${
                   index % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"
                 }`}
