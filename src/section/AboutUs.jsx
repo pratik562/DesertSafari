@@ -71,8 +71,8 @@ export default function AboutUs() {
         </p>
       </div>
 
-      {/* About Major Services */}
-      <div className="flex flex-col gap-12 mt-12 w-full ">
+     {/* About Major Services */}
+     <div className="flex flex-col gap-12 mt-12 w-full ">
         {majorServices.map((service, index) => (
           <AboutService
             key={service.id}
@@ -83,14 +83,15 @@ export default function AboutUs() {
         ))}
       </div>
 
-      <div className="my-20 flex flex-col justify-center items-center px-4 ">
+      {/* Founder Details Section */}
+      <div className="my-15 justify-center items-center flex flex-col my-20 ">
         <div>
-          <h2 className="font-palanquin font-bold text-3xl sm:text-4xl md:text-5xl leading-tight text-center">
+          <h2 className="font-palanquin font-bold text-3xl sm:text-4xl md:text-5xl leading-tight text-center text-secondary">
             Our{" "}
-            <span className="text-primary drop-shadow-lg">Expert Doctors</span>
+            <span className="text-primary drop-shadow-lg ">Expert Team</span>
           </h2>
         </div>
-        <div className="grid sm:grid-cols-2  gap-8 sm:gap-14 mt-16 w-full max-w-6xl ">
+        <div className="grid sm:grid-cols-2  sm:gap-14 mt-16">
           {FounderDetails.map((founder, index) => (
             <div
               key={founder.name}

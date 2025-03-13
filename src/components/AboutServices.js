@@ -33,7 +33,7 @@ const AboutService = ({ service, index, onLearnMore }) => {
   return (
     <div
       ref={serviceRef}
-      className={`relative flex flex-col sm:flex-row items-center gap-12 py-14 px-8 sm:px-14 rounded-3xl bg-home bg-cover overflow-hidden 
+      className={`screen-max-width relative flex flex-col sm:flex-row items-center gap-12 py-14 px-8 sm:px-14 rounded-3xl bg-home bg-cover overflow-hidden 
                 transition-transform duration-500 transform hover:scale-105 hover:shadow-xl ${
                   index % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"
                 }`}
@@ -44,7 +44,6 @@ const AboutService = ({ service, index, onLearnMore }) => {
     >
       {/* Background Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black bg-opacity-60 z-0" />
-
 
       {/* Image Section */}
       <div className="relative w-[90%] max-w-[360px] h-[240px] sm:w-[50%] sm:max-w-[500px] sm:h-[320px] flex justify-center items-center z-10">
@@ -67,20 +66,23 @@ const AboutService = ({ service, index, onLearnMore }) => {
       </div>
 
       {/* Service Details */}
-      <div className="relative text-center sm:text-left max-w-full sm:max-w-[50%] z-10">
-        <h3 className="text-3xl sm:text-4xl font-bold text-primary drop-shadow-md">
+      <div className="relative flex flex-col sm:items-start sm:justify-center text-center sm:text-left max-w-full sm:max-w-[50%] z-10 p-4 sm:p-6 md:p-8">
+        {/* Title */}
+        <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary drop-shadow-md leading-tight">
           {service.title}
         </h3>
 
+        {/* Short Description */}
         <p className="text-primary-text mt-4 leading-relaxed text-sm sm:text-base md:text-lg opacity-90 drop-shadow-sm">
           {service.shortDescription}
         </p>
 
+        {/* Learn More Button */}
         <Button
           label="Learn More"
           onClick={onLearnMore}
           className="mt-6 px-6 py-3 bg-primary text-primary-text font-semibold rounded-lg shadow-lg 
-            hover:bg-opacity-1 hover:shadow-xl transform hover:-translate-y-1 transition-all duration-500"
+        hover:bg-opacity-1 hover:shadow-xl transform hover:-translate-y-1 transition-all duration-500"
         />
       </div>
     </div>
